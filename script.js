@@ -6,6 +6,7 @@ let secretMenuToggle, secretModal, secretWishlist, passwordInput, passwordSubmit
 let scratchCanvas, letter, envelope, ctx, skipScratchButton;
 let progressBar, percentage, loadingText, skipProgressButton;
 let scrollProgress, backToTop;
+let musicToggle, musicIcon;
 
 // Variabel scratch
 let isScratching = false;
@@ -37,15 +38,18 @@ function initAudio() {
     audio.volume = 0.4;
 }
 
-// Coba putar audio (hanya sekali)
-function tryPlayAudio() {
-    if (!audioStarted && audio) {
+// Toggle play/pause musik
+function toggleMusic() {
+    if (!audio) return;
+    
+    if (audio.paused) {
         audio.play().then(() => {
             audioStarted = true;
-            console.log('Audio diputar');
-        }).catch(e => {
-            console.log('Autoplay diblokir, menunggu interaksi lanjutan', e);
-        });
+            musicIcon.className = 'fas fa-pause';
+        }).catch(e => console.log('Gagal memutar audio:', e));
+    } else {
+        audio.pause();
+        musicIcon.className = 'fas fa-play';
     }
 }
 
@@ -77,6 +81,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     scrollProgress = document.getElementById('scrollProgress');
     backToTop = document.getElementById('backToTop');
+    
+    musicToggle = document.getElementById('musicToggle');
+    musicIcon = musicToggle.querySelector('i');
+
+    // Event listener tombol musik
+    musicToggle.addEventListener('click', toggleMusic);
 
     // Mulai proses loading
     initScratchLoading();
@@ -88,7 +98,6 @@ function initSecretWishlist() {
     if (!secretMenuToggle) return;
     
     secretMenuToggle.addEventListener('click', () => {
-        tryPlayAudio(); // interaksi: putar audio
         secretModal.classList.add('active');
         passwordInput.focus();
     });
@@ -166,7 +175,6 @@ function initScratchLoading() {
     setupScratchEvents();
     
     skipScratchButton.addEventListener('click', function() {
-        tryPlayAudio(); // interaksi: putar audio
         skipToProgressLoading();
     });
     
@@ -203,7 +211,6 @@ function setupScratchEvents() {
 }
 
 function handleMouseDown(e) {
-    tryPlayAudio(); // interaksi: putar audio
     isScratching = true;
     const rect = scratchCanvas.getBoundingClientRect();
     lastX = e.clientX - rect.left;
@@ -213,7 +220,6 @@ function handleMouseDown(e) {
 }
 
 function handleTouchStart(e) {
-    tryPlayAudio(); // interaksi: putar audio
     e.preventDefault();
     isScratching = true;
     const rect = scratchCanvas.getBoundingClientRect();
@@ -395,7 +401,6 @@ function startProgressLoading() {
     requestAnimationFrame(updateProgress);
     
     skipProgressButton.addEventListener('click', function() {
-        tryPlayAudio(); // interaksi: putar audio
         skipProgressLoading();
     });
 }
@@ -420,7 +425,7 @@ function openWebsite() {
             document.body.classList.add('website-content-loaded');
             initWebsiteEffects();
             createCelebrationEffect();
-            // Audio sudah diputar saat interaksi, tidak perlu dipanggil lagi
+            // Tidak ada autoplay, musik hanya lewat tombol
         }, 50);
     }, 800);
 }
