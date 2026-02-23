@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎂 Selamat Ulang Tahun Sayangku - Riska Estiyana 🎂</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Secret Menu Toggle -->
+    <div class="secret-menu-toggle" id="secretMenuToggle">
+        <div class="secret-dot"></div>
+        <div class="secret-dot"></div>
+        <div class="secret-dot"></div>
+    </div>
+
+    <!-- Secret Password Modal -->
+    <div class="secret-modal" id="secretModal">
+        <div class="secret-modal-content">
+            <div class="secret-modal-icon">
+                <i class="fas fa-lock"></i>
+            </div>
+            <h2>Catatan Rahasia 📒</h2>
+            <p>Masukkan password untuk mengakses catatan wishlist rahasia untuk riska sayang 💖</p>
+            <input type="text" class="password-input" id="passwordInput" placeholder="Masukkan password...">
+            <button class="password-submit" id="passwordSubmit">Buka Catatan Rahasia</button>
+            <div class="password-error" id="passwordError">Password salah! Coba lagi.</div>
+            <div class="password-hint">Hint: 3 kata cinta yang paling sering anin ucapkan ke riska (dalam bahasa Inggris)</div>
+        </div>
+    </div>
+
+    <!-- Secret Wishlist Section -->
+    <div class="secret-wishlist" id="secretWishlist">
+        <div class="close-wishlist" id="closeWishlist">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="secret-wishlist-content">
+            <h1 class="secret-wishlist-title">Catatan Wishlist Rahasia</h1>
+            <p class="secret-wishlist-subtitle">Ini adalah daftar keinginan dan impian yang ingin anin wujudkan untuk riska, sayang. Setiap item adalah ungkapan cinta anin yang ingin membuat riska bahagia.</p>
+            
+            <div class="wishlist-note-container">
+                <div class="wishlist-content">
+                    <h2>📝 Daftar Keinginan untuk Kebahagiaan riska</h2>
+                    
+                    <div class="wishlist-section">
+                        <h3><i class="fas fa-plane"></i> Petualangan Bersama</h3>
+                        <ul>
+                            <li>Liburan keliling dunia bersama riska✈️</li>
+                            <li>Road trip ke Yogyakarta - Mengunjungi candi, mencoba kuliner khas, tinggal di penginapan tradisional</li>
+                            <li>Naik hot air balloon - Menikmati pemandangan dari ketinggian saat matahari terbit</li>
+                            <li>Kunjungi Tokyo - Menikmati budaya Jepang, makanan street food, dan teknologi canggih</li>
+                        </ul>
+                        <div class="wishlist-priority">Prioritas: Tinggi</div>
+                    </div>
+                    
+                    <div class="wishlist-section">
+                        <h3><i class="fas fa-gem"></i> Hadiah Spesial</h3>
+                        <ul>
+                            <li>Kalung emas dengan inisial kita berdua - Simbol ikatan yang tak terputus</li>
+                            <li>Jam tangan elegan - Untuk mengingatkan setiap detik kebersamaan kita</li>
+                            <li>Bingkai foto digital - Menampilkan koleksi foto kenangan kita yang bisa berubah</li>
+                            <li>Perhiasan khusus - Dirancang khusus untuk riska dengan simbol cinta kita</li>
+                        </ul>
+                        <div class="wishlist-priority">Prioritas: Sedang</div>
+                    </div>
+                    
+                    <div class="wishlist-section">
+                        <h3><i class="fas fa-heart"></i> Pengalaman Romantis</h3>
+                        <ul>
+                            <li>Makan malam di restoran bintang 5 - Dengan pemandangan kota dan live music</li>
+                            <li>Sesi foto profesional - Mengabadikan momen indah kita dengan fotografer terbaik</li>
+                            <li>Kursus memasak bersama - Belajar membuat masakan favorit kita berdua</li>
+                            <li>Konser musik klasik - Menikmati malam romantis dengan alunan musik indah</li>
+                        </ul>
+                        <div class="wishlist-priority">Prioritas: Tinggi</div>
+                    </div>
+                    
+                    <div class="wishlist-section">
+                        <h3><i class="fas fa-home"></i> Untuk Rumah Kita</h3>
+                        <ul>
+                            <li>Perpustakaan mini - Rak buku khusus untuk koleksi buku favorit kita</li>
+                            <li>Taman kecil - Dengan tanaman bunga favorit riska dan tempat duduk yang nyaman</li>
+                            <li>Dapur impian - Lengkap dengan semua peralatan untuk memasak bersama</li>
+                            <li>Sistem musik rumah - Untuk mendengarkan lagu favorit kita di setiap sudut rumah</li>
+                        </ul>
+                        <div class="wishlist-priority">Prioritas: Sedang</div>
+                    </div>
+                    
+                    <div class="wishlist-section">
+                        <h3><i class="fas fa-spa"></i> Perawatan & Relaksasi</h3>
+                        <ul>
+                            <li>Paket spa sehari penuh - Pijat, facial, dan perawatan tubuh lengkap</li>
+                            <li>Retreat wellness - Menginap di resort kesehatan untuk refresh pikiran dan tubuh</li>
+                            <li>Membership gym - Dengan personal trainer untuk menjaga kesehatan kita</li>
+                            <li>Kelas yoga berdua - Untuk relaksasi dan menjaga kebugaran bersama</li>
+                        </ul>
+                        <div class="wishlist-priority">Prioritas: Rendah</div>
+                    </div>
+                    
+                    <div class="wishlist-section">
+                        <h3><i class="fas fa-book"></i> Koleksi Kenangan</h3>
+                        <ul>
+                            <li>Buku harian cinta - Diisi bersama dengan kenangan, foto, dan cerita kita</li>
+                            <li>Album foto digital - Koleksi semua foto kita dari awal sampai sekarang</li>
+                            <li>Peta perjalanan - Menandai semua tempat yang sudah kita kunjungi bersama</li>
+                            <li>Kotak kenangan - Berisi tiket, stiker, dan benda-benda kenangan kecil kita</li>
+                        </ul>
+                        <div class="wishlist-priority">Prioritas: Sedang</div>
+                    </div>
+                    
+                    <div class="wishlist-section">
+                        <h3><i class="fas fa-graduation-cap"></i> Pengembangan Diri</h3>
+                        <ul>
+                            <li>Kursus online - Untuk mengembangkan bakat dan minat riska</li>
+                            <li>Workshop kreatif - Melukis, menulis, atau kerajinan tangan bersama</li>
+                            <li>Kelas bahasa - Belajar bahasa baru bersama untuk persiapan traveling</li>
+                            <li>Seminar motivasi - Untuk terus menginspirasi dan mengembangkan potensi kita</li>
+                        </ul>
+                        <div class="wishlist-priority">Prioritas: Sedang</div>
+                    </div>
+                    
+                    <p style="margin-top: 40px; font-style: italic; color: var(--notebook-brown); text-align: center; border-top: 1px dashed var(--notebook-brown); padding-top: 20px;">
+                        Setiap item dalam daftar ini adalah janji cinta anin untuk membuat riska bahagia. Anin akan berusaha mewujudkan semuanya ketika sukses nanti, satu per satu, karena riska pantas mendapatkan yang terbaik dalam hidup.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Screen dengan Efek Gosok Surat -->
+    <div id="loadingScreen">
+        <div class="envelope-container">
+            <div class="envelope">
+                <div class="envelope-flap"></div>
+                <div class="envelope-front">
+                    <div class="envelope-icon">💌</div>
+                </div>
+                <div class="letter">
+                    <div class="letter-content">
+                        <h3>Untuk Cintaku</h3>
+                        <p>Selamat Ulang Tahun Sayang!</p>
+                        <p>Gosok amplop ini untuk membuka kejutan spesial untuk riska wahai my princess...</p>
+                        <i class="fas fa-heart" style="color: #ff4d94; font-size: 2rem; margin-top: 15px;"></i>
+                    </div>
+                </div>
+                <canvas class="scratch-overlay" id="scratchCanvas" width="320" height="220"></canvas>
+            </div>
+        </div>
+        <div class="scratch-instruction">
+            <i class="fas fa-hand-point-up"></i>
+            <span>Gosok amplop untuk membuka surat spesial ini</span>
+        </div>
+    </div>
+
+    <!-- Progress Loading Screen -->
+    <div id="progressLoading">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i class="fas fa-heart"></i>
+            </div>
+            <div class="loading-text">Menyiapkan Kejutan Spesial 💝</div>
+            
+            <div class="loading-progress-container">
+                <div class="loading-progress-bar" id="progressBar"></div>
+            </div>
+            
+            <div class="loading-percentage" id="percentage">0%</div>
+            <div class="loading-subtext" id="loadingText">Memuat pesan cinta pertama...</div>
+            
+            <button class="skip-button" id="skipProgressButton">
+                <i class="fas fa-forward"></i> Akses Cepat
+            </button>
+        </div>
+    </div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Back to Top -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- Website Content -->
+    <div id="websiteContent">
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-icon">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <h1>🎂 Selamat Ulang Tahun Sayangku! 🎂</h1>
+                    <h2>Hari Spesial untuk Wanita Terhebat di Dunia</h2>
+                    <p>Di hari yang penuh berkah ini, anin ingin mengucapkan selamat ulang tahun untuk wanita paling istimewa dalam hidupku. Setiap momen bersama riska adalah anugerah yang tak ternilai.</p>
+                    <p>Semoga hari ini dan semua hari yang akan datang dipenuhi dengan kebahagiaan, cinta, dan segala hal baik yang pantas riska dapatkan.</p>
+                    <div class="hero-highlight">
+                        💖 riska adalah alasan terbesar kebahagiaan anin 💖
+                    </div>
+                    <div>
+                        <button class="skip-button" id="skipScratchButton">
+                            <i class="fas fa-bolt"></i> my love
+                        </button>    
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about" id="about">
+            <div class="container">
+                <h2 class="section-title">💫 Mengenai Wanita Hebat Ini</h2>
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="images/gambar1.jpg" alt="foto pacar">
+                    </div>
+                    <div class="about-text">
+                        <h3>✨ Keindahan Jiwa dan Rupa ✨</h3>
+                        <p>Riska adalah kombinasi sempurna antara kecerdasan, kelembutan, dan kekuatan. Setiap hari bersama Riska adalah pelajaran tentang arti cinta sejati dan kehidupan yang penuh makna.</p>
+                        <p>Senyuman Riska mampu menerangi ruangan terkelam sekalipun, dan tawa riska adalah musik terindah yang pernah anin dengar. Riska adalah sumber inspirasi anin, motivasi anin, dan alasan anin tersenyum setiap hari.</p>
+                        <div class="qualities">
+                            <span class="quality-tag">Cantik</span>
+                            <span class="quality-tag">Cerdas</span>
+                            <span class="quality-tag">Perhatian</span>
+                            <span class="quality-tag">Kuat</span>
+                            <span class="quality-tag">Inspiratif</span>
+                            <span class="quality-tag">Penuh Cinta</span>
+                            <span class="quality-tag">Setia</span>
+                            <span class="quality-tag">Pengertian</span>
+                            <span class="quality-tag">Hangat</span>
+                            <span class="quality-tag">Berbakat</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery" id="gallery">
+            <div class="container">
+                <h2 class="section-title">📸 Album Kenangan Indah</h2>
+                <div class="gallery-container">
+                    <div class="gallery-item">
+                        <img src="images/gambar3.jpg" alt="Kenangan 1">
+                        <div class="gallery-caption">
+                            <h3>Momen FotBar</h3>
+                            <p>Hari yang indah bersama Riska</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/gambar2.jpg" alt="Kenangan 2">
+                        <div class="gallery-caption">
+                            <h3>menyandar</h3>
+                            <p>Bersandar bersama membuat Hubungan kita Berwarna</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/gambar4.jpg" alt="Kenangan 3">
+                        <div class="gallery-caption">
+                            <h3>Senyuman Terindah</h3>
+                            <p>Senyuman yang selalu anin rindukan setiap hari</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stories Section -->
+        <section class="stories" id="stories">
+            <div class="container">
+                <h2 class="section-title">📖 Kisah Perjalanan Kita</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date"><i class="far fa-calendar-alt"></i> Hari MPLS</div>
+                            <h3>Kebersamaan Yang Tak Disengaja</h3>
+                            <p>Waktu Pertama Kali Kita Bertemu pada MPLS, anin inget banget Pas itu RISKA Sok Iye huuu</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date"><i class="far fa-calendar-alt"></i> Keliling Gajelas</div>
+                            <h3>Ngedate Pertama yang Tak Terlupakan</h3>
+                            <p>Kita pertama kali jalan keliling keliling gajelas untung saat itu kita gada canggung sam sekali yaaa.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date"><i class="far fa-calendar-alt"></i> keliling imkot</div>
+                            <h3>muter muter imkot</h3>
+                            <p>inget kan pas kita berdua keliling imkot, pas nyampe imkot malah gatau ngapain jadi kita kr panjiwa terus pas lagi duduk berdua ada bocil-bocil yang ngeliatin dan kita ga nyadar😭😭😭.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wishlist Section -->
+        <section class="wishlist" id="wishlist">
+            <div class="container">
+                <h2 class="section-title">🎁 Harapan & Impian Untuk riska</h2>
+                <div class="wishlist-container">
+                    <div class="wishlist-item">
+                        <div class="wishlist-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3>Kesehatan & Kebahagiaan</h3>
+                        <p>Semoga riska selalu diberi kesehatan yang prima dan kebahagiaan yang tak terhingga. Anin ingin melihat riska tersenyum setiap hari dan menjalani hidup dengan penuh semangat.</p>
+                    </div>
+                    <div class="wishlist-item">
+                        <div class="wishlist-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Kesuksesan & Prestasi</h3>
+                        <p>Semoga semua impian dan cita-cita riska tercapai. Anin tahu riska adalah wanita yang kuat dan mampu meraih segala yang riska inginkan. Anin akan selalu mendukung riska.</p>
+                    </div>
+                    <div class="wishlist-item">
+                        <div class="wishlist-icon">
+                            <i class="fas fa-globe-americas"></i>
+                        </div>
+                        <h3>Petualangan & Pengalaman</h3>
+                        <p>Semoga kita bisa menjelajahi dunia bersama, mengunjungi tempat-tempat indah, dan menciptakan kenangan yang tak terlupakan di setiap sudut bumi.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Future Section -->
+        <section class="future" id="future">
+            <div class="container">
+                <h2 class="section-title">🌟 Harapan untuk Masa Depan Kita</h2>
+                <div class="future-content">
+                    <p>Anin membayangkan masa depan di mana kita bisa tumbuh bersama, belajar dari satu sama lain, dan membangun kehidupan yang penuh cinta dan pengertian.</p>
+                    <p>Anin berharap kita bisa mengatasi semua tantangan bersama, merayakan setiap kemenangan kecil, dan terus memperkuat ikatan yang kita miliki. Anin ingin menjadi bagian dari setiap bab kehidupan riska yang akan datang.</p>
+                    <p>Di masa depan, anin berharap kita bisa memiliki rumah yang penuh tawa, perjalanan yang menginspirasi, dan cinta yang semakin dalam seiring berjalannya waktu. Anin tidak sabar untuk melihat ke mana kehidupan akan membawa kita.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Relationship Section -->
+        <section class="relationship" id="relationship">
+            <div class="container">
+                <h2 class="section-title">💞 Tentang Hubungan Kita</h2>
+                <div class="relationship-grid">
+                    <div class="relationship-card">
+                        <div class="relationship-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3>Dukungan Tanpa Syarat</h3>
+                        <p>Kita selalu saling mendukung dalam segala hal. riska adalah penyemangat terbesarku, dan anin berjanji akan selalu menjadi penyemangat riska juga.</p>
+                    </div>
+                    <div class="relationship-card">
+                        <div class="relationship-icon">
+                            <i class="fas fa-laugh-beam"></i>
+                        </div>
+                        <h3>Tawa & Kebahagiaan</h3>
+                        <p>Bersama riska, setiap hari terasa lebih cerah. Tawa riska adalah musik terindah, dan kebahagiaan riska adalah prioritas utamaku.</p>
+                    </div>
+                    <div class="relationship-card">
+                        <div class="relationship-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>Komunikasi Terbuka</h3>
+                        <p>Kita selalu bisa membicarakan apa pun tanpa takut dihakimi. Komunikasi jujur kita adalah fondasi terkuat dalam hubungan ini.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Message Section -->
+        <section class="message" id="message">
+            <div class="container">
+                <h2 class="section-title">💌 Surat Cinta Untuk riska</h2>
+                <div class="message-card">
+                    <div class="message-content">
+                        <p>Sayangku yang tersayang,</p>
+                        <p>Di hari ulang tahun riska yang spesial ini, anin ingin mengucapkan selamat atas segala hal menakjubkan yang telah riska capai dan orang luar biasa yang riska jadikan. riska adalah wanita yang kuat, bijaksana, dan penuh kasih.</p>
+                        <p>Terima kasih telah menjadi cahaya dalam hidupku, sahabat terbaikku, dan cinta sejatiku. riska mengajari anin arti cinta sejati tanpa syarat dan bagaimana menjadi pribadi yang lebih baik setiap harinya.</p>
+                        <p>Anin masih ingat momen-momen kecil yang kita lalui bersama: tawa kita yang tak terkontrol, percakapan larut malam, dan cara riska selalu tahu apa yang anin butuhkan bahkan sebelum anin menyadarinya sendiri.</p>
+                        <p>Anin berjanji akan selalu ada untuk riska, mendukung impian riska, merayakan kesuksesan riska, dan menghibur riska di saat-saat sulit. Bersama riska, anin telah menemukan rumah yang tidak pernah anin tahu anin butuhkan.</p>
+                        <p>Semoga tahun ini membawa lebih banyak kebahagiaan, petualangan, dan cinta daripada yang bisa kita bayangkan. Anin tidak sabar untuk melihat apa yang akan kita capai bersama.</p>
+                        <p>Selamat ulang tahun, sayang. riska adalah hadiah terbesar dalam hidupku dan alasan terbesarku untuk bersyukur setiap hari.</p>
+                    </div>
+                    <div class="signature">
+                        Dengan cinta abadi,
+                    </div>
+                    <div class="hearts">
+                        <div class="heart">❤️</div>
+                        <div class="heart">💖</div>
+                        <div class="heart">💕</div>
+                        <div class="heart">💗</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <p class="footer-message">Website premium ini dibuat dengan penuh cinta dan perhatian untuk wanita terhebat di dunia. Semoga setiap hari dalam hidupmu dipenuhi dengan kebahagiaan, cinta, dan keberkahan yang tak terhingga.</p>
+                    <!-- Social icons dihapus -->
+                    <div class="copyright">
+                        © 2026 | Dibuat dengan ❤️ untuk ulang tahun spesial riska | ADNIN
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
