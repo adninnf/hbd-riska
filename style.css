@@ -1276,6 +1276,98 @@ section {
     line-height: 1.8;
 }
 
+/* Game Memory Match */
+.game-section {
+    padding: 100px 0;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.card {
+    aspect-ratio: 1 / 1;
+    background: var(--gradient-card);
+    border: 2px solid var(--rose-gold);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+    user-select: none;
+}
+
+.card.flipped {
+    background: var(--gradient-main);
+    transform: scale(0.95);
+    border-color: var(--gold);
+}
+
+.card.matched {
+    background: var(--gradient-gold);
+    border-color: var(--gold);
+    cursor: default;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.card.matched i {
+    color: #333;
+}
+
+.game-message {
+    font-size: 1.5rem;
+    color: var(--gold);
+    min-height: 60px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.game-reset-btn {
+    padding: 15px 40px;
+    background: var(--gradient-main);
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.game-reset-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-heavy);
+}
+
+/* Responsif */
+@media (max-width: 576px) {
+    .game-grid {
+        gap: 10px;
+    }
+    .card {
+        font-size: 1.8rem;
+    }
+}
+
 /* Message Section */
 .message {
     padding: 100px 0;
@@ -1683,3 +1775,4 @@ footer {
         font-size: 1.5rem;
     }
 }
+
