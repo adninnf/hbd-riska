@@ -22,6 +22,23 @@ let skipLoading = false;
 // Secret wishlist
 let isPasswordCorrect = false;
 
+// Game Memory Match
+let gameGrid, gameMessage, resetGameBtn;
+const icons = [
+    'fas fa-heart', 'fas fa-heart',
+    'fas fa-star', 'fas fa-star',
+    'fas fa-gem', 'fas fa-gem',
+    'fas fa-crown', 'fas fa-crown',
+    'fas fa-ring', 'fas fa-ring',
+    'fas fa-infinity', 'fas fa-infinity',
+    'fas fa-sun', 'fas fa-sun',
+    'fas fa-moon', 'fas fa-moon'
+];
+let shuffledIcons = [];
+let flippedCards = [];
+let matchedPairs = 0;
+let lockBoard = false;
+
 const loadingMessages = [
     "Memuat pesan cinta pertama...",
     "Menyiapkan kenangan indah...",
@@ -83,10 +100,15 @@ document.addEventListener('DOMContentLoaded', function() {
     backToTop = document.getElementById('backToTop');
     
     musicToggle = document.getElementById('musicToggle');
-    musicIcon = musicToggle.querySelector('i');
+    if (musicToggle) {
+        musicIcon = musicToggle.querySelector('i');
+        musicToggle.addEventListener('click', toggleMusic);
+    }
 
-    // Event listener tombol musik
-    musicToggle.addEventListener('click', toggleMusic);
+    // Game elements
+    gameGrid = document.getElementById('gameGrid');
+    gameMessage = document.getElementById('gameMessage');
+    resetGameBtn = document.getElementById('resetGame');
 
     // Mulai proses loading
     initScratchLoading();
@@ -425,7 +447,7 @@ function openWebsite() {
             document.body.classList.add('website-content-loaded');
             initWebsiteEffects();
             createCelebrationEffect();
-            // Tidak ada autoplay, musik hanya lewat tombol
+            initGame(); // Inisialisasi game memory match
         }, 50);
     }, 800);
 }
@@ -532,6 +554,96 @@ function createFloatingHearts() {
         heart.style.animationDuration = Math.random() * 30 + 25 + 's';
         document.body.appendChild(heart);
     }
+}
+
+// ================== GAME MEMORY MATCH ==================
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+function initGame() {
+    if (!gameGrid) return; // Jika elemen game tidak ada, jangan jalankan
+    shuffledIcons = shuffleArray([...icons]);
+    gameGrid.innerHTML = '';
+    matchedPairs = 0;
+    flippedCards = [];
+    lockBoard = false;
+    if (gameMessage) gameMessage.textContent = '';
+
+    shuffledIcons.forEach((iconClass, index) => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.dataset.index = index;
+        card.dataset.icon = iconClass;
+        card.innerHTML = `<i class="${iconClass}"></i>`;
+        card.style.visibility = 'hidden'; // Sembunyikan ikon awal
+        card.addEventListener('click', handleCardClick);
+        gameGrid.appendChild(card);
+    });
+}
+
+function handleCardClick(e) {
+    const card = e.currentTarget;
+    if (lockBoard) return;
+    if (card.classList.contains('flipped') || card.classList.contains('matched')) return;
+    if (flippedCards.length === 2) return;
+
+    // Tampilkan ikon
+    card.style.visibility = 'visible';
+    card.classList.add('flipped');
+    flippedCards.push(card);
+
+    if (flippedCards.length === 2) {
+        lockBoard = true;
+        checkMatch();
+    }
+}
+
+function checkMatch() {
+    const [card1, card2] = flippedCards;
+    const icon1 = card1.dataset.icon;
+    const icon2 = card2.dataset.icon;
+
+    if (icon1 === icon2) {
+        // Cocok
+        card1.classList.remove('flipped');
+        card2.classList.remove('flipped');
+        card1.classList.add('matched');
+        card2.classList.add('matched');
+        matchedPairs++;
+
+        if (matchedPairs === icons.length / 2) {
+            if (gameMessage) gameMessage.textContent = '🎉 Selamat! Kamu menemukan semua cinta 💖';
+            createConfetti(); // pakai fungsi confetti yang sudah ada
+        }
+
+        resetFlipped();
+        lockBoard = false;
+    } else {
+        // Tidak cocok, tutup kembali setelah 0.5 detik
+        setTimeout(() => {
+            card1.style.visibility = 'hidden';
+            card2.style.visibility = 'hidden';
+            card1.classList.remove('flipped');
+            card2.classList.remove('flipped');
+            resetFlipped();
+            lockBoard = false;
+        }, 500);
+    }
+}
+
+function resetFlipped() {
+    flippedCards = [];
+}
+
+if (resetGameBtn) {
+    resetGameBtn.addEventListener('click', () => {
+        initGame();
+    });
 }
 
 // Handle resize
