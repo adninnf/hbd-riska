@@ -1,15 +1,13 @@
 // Variabel global
+let audio = null;
+let audioStarted = false;
 let loadingScreen, progressLoading, websiteContent;
 let secretMenuToggle, secretModal, secretWishlist, passwordInput, passwordSubmit, passwordError, closeWishlist;
 let scratchCanvas, letter, envelope, ctx, skipScratchButton;
 let progressBar, percentage, loadingText, skipProgressButton;
 let scrollProgress, backToTop;
 
-// Audio
-let audio = null;
-let audioStarted = false;
-
-// Variabel untuk scratch
+// Variabel scratch
 let isScratching = false;
 let scratchPercentage = 0;
 let isScratchComplete = false;
@@ -32,28 +30,29 @@ const loadingMessages = [
     "Hampir selesai, sayang..."
 ];
 
-// Inisialisasi audio
+// Inisialisasi audio di awal (belum diputar)
 function initAudio() {
     audio = new Audio('hbd.mp3');
     audio.loop = true;
     audio.volume = 0.4;
 }
 
-// Coba putar audio (dipanggil saat interaksi)
+// Coba putar audio (hanya sekali)
 function tryPlayAudio() {
     if (!audioStarted && audio) {
         audio.play().then(() => {
             audioStarted = true;
             console.log('Audio diputar');
-        }).catch(e => console.log('Autoplay diblokir:', e));
+        }).catch(e => {
+            console.log('Autoplay diblokir, menunggu interaksi lanjutan', e);
+        });
     }
 }
 
-// Inisialisasi setelah DOM siap
 document.addEventListener('DOMContentLoaded', function() {
-    initAudio(); // <-- inisialisasi audio
+    initAudio(); // Siapkan audio sejak awal
 
-    // Tangkap elemen
+    // Tangkap elemen DOM
     loadingScreen = document.getElementById('loadingScreen');
     progressLoading = document.getElementById('progressLoading');
     websiteContent = document.getElementById('websiteContent');
@@ -89,7 +88,7 @@ function initSecretWishlist() {
     if (!secretMenuToggle) return;
     
     secretMenuToggle.addEventListener('click', () => {
-        tryPlayAudio(); // <-- coba putar audio saat interaksi
+        tryPlayAudio(); // interaksi: putar audio
         secretModal.classList.add('active');
         passwordInput.focus();
     });
@@ -108,7 +107,6 @@ function initSecretWishlist() {
         if (e.target === secretModal) secretModal.classList.remove('active');
     });
     
-    // Escape key untuk menutup wishlist
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && secretWishlist.classList.contains('active')) {
             secretWishlist.classList.remove('active');
@@ -168,13 +166,12 @@ function initScratchLoading() {
     setupScratchEvents();
     
     skipScratchButton.addEventListener('click', function() {
-        tryPlayAudio(); // <-- coba putar audio
+        tryPlayAudio(); // interaksi: putar audio
         skipToProgressLoading();
     });
     
     createScratchHearts();
     
-    // Auto-skip setelah 30 detik
     setTimeout(() => {
         if (!isScratchComplete) skipToProgressLoading();
     }, 30000);
@@ -206,7 +203,7 @@ function setupScratchEvents() {
 }
 
 function handleMouseDown(e) {
-    tryPlayAudio(); // <-- coba putar audio saat interaksi
+    tryPlayAudio(); // interaksi: putar audio
     isScratching = true;
     const rect = scratchCanvas.getBoundingClientRect();
     lastX = e.clientX - rect.left;
@@ -216,7 +213,7 @@ function handleMouseDown(e) {
 }
 
 function handleTouchStart(e) {
-    tryPlayAudio(); // <-- coba putar audio saat interaksi
+    tryPlayAudio(); // interaksi: putar audio
     e.preventDefault();
     isScratching = true;
     const rect = scratchCanvas.getBoundingClientRect();
@@ -290,7 +287,6 @@ function openEnvelope() {
     if (isScratchComplete) return;
     isScratchComplete = true;
     
-    // Hapus event listener
     scratchCanvas.removeEventListener('mousedown', handleMouseDown);
     scratchCanvas.removeEventListener('touchstart', handleTouchStart);
     scratchCanvas.removeEventListener('mousemove', handleMouseMove);
@@ -399,7 +395,7 @@ function startProgressLoading() {
     requestAnimationFrame(updateProgress);
     
     skipProgressButton.addEventListener('click', function() {
-        tryPlayAudio(); // <-- coba putar audio
+        tryPlayAudio(); // interaksi: putar audio
         skipProgressLoading();
     });
 }
@@ -424,6 +420,7 @@ function openWebsite() {
             document.body.classList.add('website-content-loaded');
             initWebsiteEffects();
             createCelebrationEffect();
+            // Audio sudah diputar saat interaksi, tidak perlu dipanggil lagi
         }, 50);
     }, 800);
 }
@@ -532,7 +529,7 @@ function createFloatingHearts() {
     }
 }
 
-// Handle resize untuk canvas scratch
+// Handle resize
 window.addEventListener('resize', () => {
     if (loadingScreen && loadingScreen.style.display !== 'none' && envelope && scratchCanvas) {
         setupScratchCanvas();
